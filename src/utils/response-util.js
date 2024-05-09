@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 const { StatusCodes } = require('http-status-codes');
 
 class Ok extends Error {

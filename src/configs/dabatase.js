@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
 const DatabaseEnvs = require('./envs/database-env');
+const log = require('./../utils/logger-util');
 
 class DatabaseConfig {
     async connect() {
         try {
-            console.info(`Connecting to Database uri: ${DatabaseEnvs.URI}`);
+            log.info(`Connecting to Database uri: ${DatabaseEnvs.URI}`);
             await mongoose.connect(DatabaseEnvs.URI, {
                 serverSelectionTimeoutMS: 5000,
                 dbName: DatabaseEnvs.DATABASE,
             });
-            console.info('Database successfully connected!');
+            log.info('Database successfully connected!');
         } catch (error) {
-            console.error('Could not connect to database:', error);
+            log.error('Could not connect to database:', error);
             throw error;
         }
     }
