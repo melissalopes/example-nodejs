@@ -5,7 +5,8 @@ services:
     image: mongo:latest
     container_name: db
     restart: always
-    ports: 27017:27017
+    ports: 
+      - 27017:27017
 
   app:
     container_name: setup-nodejs
